@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="all">
+    <h1 class="main">Úspěšně jste se přihlásili!/registrovali!</h1>
+    <h6 class="podtext"> ( vítej, mezi námi. ) </h6>
+    <button onclick="goBack()" class="btn">vrátit se na stránku</button>
+</div>
+<style>
+    .all {
+        text-align: center;
+        font-size: 30px;
+        border:2px solid lightgrey;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 30px;
+    }
+    .all h6 {
+        color:lightgrey;
+        margin-top: -20px;
+        text-decoration: overline;
+    }
+    .btn {
+        background: none;
+        border:none;
+        padding-top: -25px;
+        font-size: 15px;
+        color: navy;
+        transition: all 550ms;
+    }
+    .btn:hover {
+        font-size: 25px;
+        border: 3px solid navy;
+        border-radius: 10px;
+
+    }
+
+</style>
+
+<script>
+    function goBack() {
+        window.location.href = "http://127.0.0.1:5500/web.html/Nike_web.html";
+    }
+</script>
+</body>
+</html>

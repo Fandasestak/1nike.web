@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike - oficial website</title>
+    <style>
+        body {
+            transition: 1s;
+            color:black;
+            background-color: rgb(113, 111, 111);
+            cursor:cell;
+        }
+        .body  {
+            display: flex;
+            justify-content: center;
+        }
+        .navnar_container {
+            position:static;
+        }
+        /* mods  */
+        .light_mode {
+            background-color: rgb(231, 225, 225);
+            color: black;
+            background: none;
+            transition: 1s;
+            border-radius: 5px;
+        }
+        .dark_mode {
+            background-color: black;
+            color: rgb(231, 225, 225);
+            transition: 1s;
+            border-radius: 5px;
+        }
+        /*  */
+        .clickToChangeButton {
+            background-color: rgb(231, 225, 225);
+            color: black;
+            font-size: larger;
+            background: none;
+            border: 1px solid rgb(113, 111, 111);
+            transition: 1s;
+            border-radius: 5px;
+        }
+        /* remove bg  */
+        .bg {
+            width: 100px;
+            height: 80px;
+            background-color: rgb(113, 111, 111);
+        }
+        .item {
+            margin: 0;
+            padding: 0;
+            mix-blend-mode: multiply;
+        }
+        /*  */
+        ul {
+            border: 1px solid rgb(113, 111, 111);
+            border-radius:20px;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            list-style-type: none;
+            overflow: hidden;
+            background:none;
+            transition: 2s;
+        }
+        li {    
+            padding-top: 5px;
+            float: left;
+            text-decoration: none;
+            color:grey;
+            background: none;
+        }
+        li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            font-size: 20px;
+            margin:2px;
+            background-color:none;
+        }
+        li a:hover {
+            color: white;
+            text-decoration: underline;
+            font-size: 30px;
+            border-radius: 5px;
+            transition: all 750ms;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: grey;
+        }
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px}
+        }
+        .first, .second, .third {
+            position: relative;
+            width: 1000px;
+            height: 400px;
+            border: 20px solid black;
+            padding: 0;
+            margin: 0;
+        }
+        .pictureFrozenMoment {
+            margin-top: 1rem;
+            position: relative;
+        }
+        .card {
+            width: 18rem;
+            color:grey;
+            border: 2px solid grey;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem;
+            transition: 1s;
+        }
+        .card-title {
+          text-align: center;
+          font-size: 20px;
+          color: navy;
+          text-decoration: underline;
+        }
+        .card:hover {
+            color: white;
+            border: 2px solid white;
+            box-shadow: 25px;
+            box-shadow: 5px 6px grey;
+        }
+        .btn {
+            text-align: center;
+            color:white;
+            text-decoration: none;
+            transition: all 1s;
+        }
+        .btn:hover {
+            font-size:50px;
+            text-decoration: underline;
+            color: navy;
+        }
+        .allCards {
+            display: inline-flex;
+            padding: 2rem;
+            margin: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+        .allCards2 {
+            display: inline-flex;
+            padding: 2rem;
+            margin: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+        .btn-primary {
+          margin-top: 50px;
+          margin-bottom: 0;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          font-size: 35px;
+          position: sticky;
+        }
+        .card-text {
+          font: 100px;
+        }
+        .logPage{
+    display: flex;
+    justify-content: center;
+  }
+  h3 {
+    margin-bottom: 5vh;
+    text-align: center;
+  }
+ 
+ 
+  .logContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 2vh;
+    margin-top: 30vh;
+  }
+  .logInput {
+    text-align: center;
+    margin-bottom: 2vh;
+    min-height: 4vh;
+    border:2px solid black;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 5px;
+  }
+  .logInput:placeholder-shown {
+    text-align: center;
+  }
+  .logButton {
+    color: white;
+    background: none;
+    text-decoration: overline;
+    border: none;
+    margin: 5px;
+    padding: 2px;
+    border-radius: 3vh;
+    transition: all 1s;                                                                                                                                                                                                                                                                    ;;
+  }
+  .logButton:hover {
+    cursor:  pointer;
+    font-size: large;
+    text-decoration: none;
+    border: 1px solid white;
+  }
+  .text {
+    color:red;
+  }
+  .odkaz {
+    inline-size: none;
+    color: white;
+    text-decoration: none;
+    text-align: right;
+    padding-right: 10px;
+    margin: 10px;
+  }
+
+    </style>
+</head>
+<body>
+
+<!--  -->
+    <div class="body">
+        <button class="clickToChangeButton" onclick="changeTextInButton()" id="btn">🌙</button>
+    </div>
+
+    <!-- navbar  -->
+    <navbar class="navnar_container">
+        <ul>
+            <div class="bg">
+           <a><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Logo_nike_principal.jpg" height="auto" width="100px" class="item" alt="Nike.logo"></a>
+            </div>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+    </navbar>
+
+    <!-- slide of picture  -->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="https://img.fruugo.com/product/6/21/197220216_max.jpg" class="first">
+          <div class="text">AirJordan 1</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="https://i.etsystatic.com/47759455/r/il/97df77/5544167449/il_794xN.5544167449_l62q.jpg" class="second">
+          <div class="text">AirJordan 2</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="https://sizeer.cz/media/cache/gallery/rc/mmw7bb9d/nike-dunk-low-mladeznicke-tenisky-cerna-cw1590-100.jpg" class="third">
+          <div class="text">NEW Air Dunk</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+
+        <!-- picture  -->
+        <img src="https://fastsole.co.uk/wp-content/uploads/2023/05/featured-image-17.jpg" width="100%" height="auto" class="pictureFrozenMoment">
+
+
+
+
+    <!-- 8 cards  -->
+<div class="allCards">
+
+    <!-- 1.  -->
+    <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_dz5485-052_phsrh000-1500_8f7qb3fdztk9aq4o.jpg" class="card-img-top" alt="Air Jordan 1 Retro High OG White Cement" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Retro High OG "White Cement"</h5>
+          <p class="card-text">Air Jordan 1 Retro High OG "White Cement" je ikonická edice známého modelu, která se inspiruje designem "White Cement" z klasického Air Jordan 3. Tento model kombinuje bílé, černé a šedé barvy s cementovými detaily, což ho činí stylovým a vysoce žádaným kouskem mezi sběrateli a sneakerheads.
+          </p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+      
+      
+      <!-- 2.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_554724-093_phsrh000-1500_outhgrxalf0w6ryy.jpg" class="card-img-top" alt="Air Jordan 1 Mid Triple Black" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Mid "Triple Black"</h5>
+          <p class="card-text">Air Jordan 1 Mid "Triple Black" je elegantní a nadčasová verze populárních Air Jordan 1 střední výšky, vyvedená v celkově černém provedení, které dodává ten správný vzhled a styl do každého outfitu.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+      
+      
+      <!-- 3.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/5/5/554724-136-phsrh000_pc27dbjeyuxcyu0g.jpg" class="card-img-top" alt="Air Jordan 1 Mid Triple White" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Mid "Triple White"</h5>
+          <p class="card-text">
+            Air Jordan 1 Mid "Triple White" je čistý a minimalistický model, který nabízí celobílý design pro nadčasový vzhled. Tento středně vysoký model zahrnuje bílou kůži a detaily bez jakýchkoli kontrastních prvků, což mu dodává elegantní a univerzální estetiku pro každodenní nošení.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+
+
+      <!-- 4.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_852542-007_phsrh000-1500_fsp4cb9uzeezl8di.jpg" class="card-img-top" alt="Air Jordan 1 Mid SE Black Gold" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Mid SE "Black Gold"</h5>
+          <p class="card-text">Air Jordan 1 Mid SE "Black Gold" je speciální edice oblíbeného modelu, která kombinuje elegantní černou a luxusní zlatou barvu pro výrazný a atraktivní vzhled. Tento středně vysoký model zdůrazňuje ikonický design Air Jordan 1 s detaily ve zlatém provedení, čímž vytváří stylový a luxusní dojem vhodný pro různé příležitosti.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+</div>
+      
+<div class="allCards2">  
+      <!-- 5. -->
+      <br>
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_bq4422-161_phsrh000-1500_e7rcnug35rhbdxnk.jpg" class="card-img-top" alt="Air Jordan 1 High '85 Metallic Burgundy" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 High '85 "Metallic Burgundy"</h5>
+          <p class="card-text">
+            Air Jordan 1 High '85 "Metallic Burgundy" je edice Air Jordan 1 High, která přináší kultovní design z roku 1985 v elegantním provedení s metalickými detaily a bohatou barvou burgundského vína. Tento model zachovává ikonický tvar a konstrukci původního Air Jordan 1, avšak přináší do hry luxusní a výrazné prvky, které ho činí jedinečným a vysoce ceněným mezi sběrateli a nadšenci do tenisek.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+      
+      
+      <!-- 6.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_dq8426-154_phsrh000-1500_ffi7cmbwgdhvm4nr.jpg" class="card-img-top" alt="Air Jordan 1 Mid Aqua" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Mid "Aqua"</h5>
+          <p class="card-text">K dispozici nejsou žádné oficiální informace o modelu Air Jordan 1 Mid "Aqua" a je pravděpodobné, že tento konkrétní model neexistuje v rámci oficiálních vydání od značky Jordan Brand. Nicméně, existuje mnoho dalších barevných variant Air Jordan 1 Mid, které mohou obsahovat podobné prvky designu jako Aqua.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+
+
+      <!-- 7.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_dz3745-300_phsrh000-1500_x4xmnm5q6hmxi5kf.jpg" class="card-img-top" alt="Air Jordan 1 Mid SE Bleached Turquoise Wmns" width="280px">
+        <div class="card-body">
+          <h5 class="card-title"> Air Jordan 1 Mid SE "Bleached Turquoise" Wmns</h5>
+          <p class="card-text">
+            Air Jordan 1 Mid SE "Bleached Turquoise" Wmns je speciální edice Air Jordan 1 Mid navržená speciálně pro ženy. Tento model přináší osvěžující design s bleached turquoise (vybledlou tyrkysovou) barvou, která dodává ten správný vzhled a styl. Je to kombinace ikonického tvaru Air Jordan 1 s moderním a atraktivním barevným schématem, které je osvěžující a přitahuje pozornost.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+
+
+      <!-- 8.  -->
+      <div class="card">
+        <img src="https://www.thestreets.cz/media/catalog/product/cache/2b5c0c30ec592b2d661598663b3592ba/a/u/aurora_fj4923-008_phsrh000-1500_uedvguejitoytizu.jpg" class="card-img-top" alt="Air Jordan 1 Mid SE Fat Tongue" width="280px">
+        <div class="card-body">
+          <h5 class="card-title">Air Jordan 1 Mid SE "Fat Tongue"</h5>
+          <p class="card-text">
+            Air Jordan 1 Mid SE "Bleached Turquoise" Wmns je speciální edice Air Jordan 1 Mid navržená speciálně pro ženy. Tento model přináší osvěžující design s bleached turquoise (vybledlou tyrkysovou) barvou, která dodává ten správný vzhled a styl. Je to kombinace ikonického tvaru Air Jordan 1 s moderním a atraktivním barevným schématem, které je osvěžující a přitahuje pozornost.</p>
+          <a href="#" class="btn btn-primary">Buy a product</a>
+        </div>
+      </div>
+</div>
+    <!-- login, sig-in  -->
+    <div class="logPage">
+      <div class="logContainer">
+          <h3>přihlašte se </h3>
+
+          <input class="logInput" placeholder="username" id="username" type="text">
+          <input class="logInput" placeholder="password" id="password" type="password">
+          <a href="register.html" class="odkaz">nemámáte u nás účet?</a>
+          <button class="logButton" onclick="login()">kontrolovat</button>
+         
+         <p class="loginOutput" id="output" onclick="removetext()"></p>
+      </div>
+  </div>
+
+
+<!--  -->
+<script>
+    var changeText = document.getElementById("btn");
+    function changeTextInButton() {
+        if(changeText.textContent === "🌙"){
+            changeText.textContent = "🔆";
+            changeText.style.transition = "2s"
+        } else {
+            changeText.textContent = "🌙";
+            changeText.style.transition = "2s"
+        };
+    }
+    // change mode light => dark, dark => light
+    const mode = document.getElementById("btn");
+    const background = document.body;
+
+    background.addEventListener("click", () => {
+        background.classList.toggle("dark_mode");
+        background.classList.toggle("light_mode");
+    });
+
+    // slide JS 
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+// log-in, sign-up 
+const database = [
+    "frantisek@sestak.myPass123",
+    "janička@kuzelkova.pizza88",
+    "karlíček@havel.kočka333",
+    "evánka@lusserova.1234567",
+    "karel@zatopek.karelvítězí",
+    "katerina@novotna.most1232",
+    "radim@vavra.autodilnyNovotny",
+    "jan@novotny.SkryteHeslo123",
+    "marie@svobodova.Bezpecne123456",
+    "jiri@horacek.TajneHeslo!789",
+    "petra@kolarova.SkryteHeslo456",
+    "tomas@hruby.Bezpecne456789",
+    "lucie@polakova.TajnaInformace!123",
+    "martin@pavlik.Skryte123456789",
+    "marketa@dvorakova.BezpecneHeslo123",
+    "david@konecny.TajneHeslo456789",
+    "veronika@malinova.SkryteHeslo!123",
+    "lukas@prochazka.Bezpecne123456",
+    "iveta@stehlikova.TajnaInformace789!",
+    "jakub@trcka.Skryte123!456",
+    "alena@adamova.BezpecneHeslo789!123",
+    "michal@urbanek.TajneHeslo!456",
+    "barbora@simkova.Skryte123789456",
+    "martin@vacha.BezpecneHeslo456123",
+    "katerina@slavikova.TajneHeslo!789",
+    "petr@matousek.Skryte456!123",
+    "zuzana@novakova.Bezpecne123789",
+]
+ 
+function login() {
+    const username = document.getElementById("username").value
+    const password = document.getElementById("password").value
+ 
+    const loginData = username + "." + password
+ 
+    for(let i = 0; i < database.length; i++){
+       
+        if(loginData == database [i]) {
+            console.log("login successful");
+            window.location.href = "http://127.0.0.1:5500/web.html/successfully.html";
+            document.getElementById("outputSite").innerHTML = loginData
+            break
+        } else if (i == database.length - 1){
+            const css = document.getElementById("output");
+            document.getElementById("output").innerHTML = "Login failed";
+            // css: 
+            css.style.textAlign = "center";
+            css.style.textDecoration = "underline";
+            css.style.color = "red";
+            css.style.cursor = "pointer";
+            console.log("login failed");
+        }
+    }
+}
+
+
+</script>
+
+</body>
+</html>
